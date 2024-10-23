@@ -2,112 +2,171 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprehensive Dashboard</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <title>Professional Finance Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #0a0a0a;
-            color: white;
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://www.freepik.com/free-photo/business-financial-chart-digital-network_10310404.htm');
+            background-size: cover; 
+            background-position: center; 
+            color: #000000;
             scroll-behavior: smooth;
         }
-
-        .header {
+        
+        /* Top Container */
+        .container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            padding: 15px 20px;
-            background-color: #ffffff;
-            color: #333;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
         }
 
-        .header h1 {
-            font-size: 20px;
-            color: #333;
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0;
         }
 
-        .header i {
+        h2 {
             font-size: 24px;
-            color: #333;
+            font-weight: 400;
+            margin: 10px 0 20px 0;
         }
 
+        .button {
+            background-color: #4a4aff;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0000ff;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        /* Navigation Bar */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: #111;
-            padding: 10px;
+            background-color: #003d66;
+            padding: 15px;
             text-align: center;
             z-index: 1000;
         }
 
         nav a {
             color: white;
-            margin: 0 20px;
+            margin: 0 15px;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
         }
 
-        
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        /* Header */
         .finpath-heading {
             text-align: center;
-            font-size: 48px; 
-            margin: 20px 0; 
-            color: #ffffff; 
+            font-size: 36px;
+            margin-top: 80px;
+            color: #003d66;
+            font-weight: bold;
         }
 
+        /* Section Styling */
         section {
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            flex-wrap: wrap;
-            align-items: flex-start; 
         }
 
         .content {
             width: 60%;
             text-align: left;
+            margin: auto;
         }
 
         .image-container {
-            display: flex;
-            justify-content: flex-end; 
             width: 40%;
+            display: flex;
+            justify-content: flex-end;
         }
 
         .image-container img {
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
+        /* Card Styling */
         .card {
-            background-color: #1a3a6b;
+            background-color: #ffffff;
             padding: 20px;
             margin: 20px 0;
             border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
         }
 
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            color: #003d66;
+            font-size: 22px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Footer */
         footer {
-            background-color: #1a1a1a;
+            background-color: #003d66;
             color: #ffffff;
             padding: 20px;
             text-align: center;
+            margin-top: 40px;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
 
+        /* Media Queries */
+        @media (max-width: 768px) {
             .content {
                 width: 100%;
             }
@@ -119,202 +178,198 @@
         }
 
         @media (max-width: 480px) {
-            .content h1 {
-                font-size: 2em;
+            h1 {
+                font-size: 1.8em;
             }
 
             .card {
-                padding: 10px;
+                padding: 15px;
             }
         }
+
+        /* Form */
         form {
             display: flex;
             flex-direction: column;
             max-width: 400px;
             margin: auto;
         }
-        
-        input[type="text"] {
+
+        input[type="text"],
+        input[type="email"] {
             padding: 10px;
-            margin: 5px 0;
+            margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        
+
         button {
-            padding: 10px;
-            background-color: #007bff;
+            padding: 12px;
+            background-color: #003d66;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #ffcc00;
+            color: #003d66;
         }
-        
+
+        /* New Styles for Enhanced Sections */
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .service {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+        }
+
+        .service h2 {
+            font-size: 18px;
+            color: #ffcc00;
+        }
+
+        .service p {
+            font-size: 14px;
+            color: #fff;
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- Top Container -->
+    <div class="container">
+        <h1>PROFESSIONAL FINANCE SERVICES</h1>
+        <h2>EXPERIENCE THE HIGHEST LEVEL</h2>
+        <a href="#section5" class="button">CONTACT US</a>
+    </div>
+    <div class="footer">
+        Image from <a href="https://www.freepik.com" target="_blank">Freepik</a>
+    </div>
+
+    <!-- Navigation Bar -->
     <nav>
-        <a href="#section1">FinPath Solution</a>
-        <a href="#section2">Feasibility & Scalability</a>
-        <a href="#section3">Underserved Communities</a>
-        <a href="#section4">Vultr Services</a>
-        <a href="#section5">Expected Impact</a>
-        <a href="financial-education.html">Financial Education</a> <!-- Link to the new Financial Education page -->
-        <a href="expense.html" target="_blank">Expense Tracker</a> <!-- Opens Expense Tracker in new tab -->
+        <a href="#section1">Home</a>
+        <a href="#section2">Our Services</a>
+        <a href="#section3">Financial Planning</a>
+        <a href="#section4">Client Testimonials</a>
+        <a href="#section5">Contact Us</a>
+        <a href="financial-education.html">Financial Education</a>
+        <a href="expense.html" target="_blank">Expense Tracker</a>
     </nav>
-    
 
-    <br>
-    <br>
-    <br>
-    
-    
-    <h1 class="finpath-heading">FinPath</h1> 
+    <h1 class="finpath-heading">Welcome to FinPath</h1>
 
-    <!-- Section 1: FinPath's Comprehensive Solution -->
+    <!-- Section 1: Comprehensive Financial Solutions -->
     <section id="section1">
-        <div class="container">
-            <div class="content">
-                <h1>FinPath's Comprehensive Solution</h1>
-                <div class="card">
-                    <h2>Financial Education</h2>
-                    <p>Interactive articles, quizzes, and tutorials covering various aspects of personal finance.</p>
-                </div>
-                <div class="card">
-                    <h2>Budget Planner</h2>
-                    <p>Track income, expenses, and set savings goals for proactive financial management.</p>
-                </div>
-                <div class="card">
-                    <h2>Expense Tracker</h2>
-                    <p>Easily log and categorize expenses for insights into spending habits.</p>
-                </div>
-                <div class="card">
-                    <h2>Financial Health Dashboard</h2>
-                    <p>Visualizes spending, savings progress, and personalized recommendations.</p>
-                </div>
+        <div class="content">
+            <h1>Comprehensive Financial Solutions</h1>
+            <div class="card">
+                <h2>Personalized Financial Planning</h2>
+                <p>Customized financial plans tailored to your unique goals and needs.</p>
             </div>
-            <div class="image-container">
-                <img src="https://storage.googleapis.com/a1aa/image/UGCeTITPK8SKASi9S7F0Q7EX6yJUGK1hIdOfWX4hFzWcPWpTA.jpg" alt="Mobile app screenshots">
+            <div class="card">
+                <h2>Investment Strategies</h2>
+                <p>Expert guidance on building and managing a diversified investment portfolio.</p>
             </div>
+            <div class="card">
+                <h2>Retirement Planning</h2>
+                <p>Strategies to ensure a secure and comfortable retirement.</p>
+            </div>
+            <div class="card">
+                <h2>Risk Management</h2>
+                <p>Identify and mitigate risks to protect your assets and investments.</p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="https://www.freepik.com/free-photo/business-financial-chart-digital-network_10310404.htm" alt="Financial services illustration">
         </div>
     </section>
 
-    <!-- Section 2: Feasibility and Scalability -->
+    <!-- Section 2: Our Services -->
     <section id="section2" style="background-color: #0d1b2a;">
         <div class="container">
             <div class="image-container">
-                <img src="https://storage.googleapis.com/a1aa/image/eTFiB72Pjfryq0CTRAACQDv9hUzPMtlylrxaE6VnOCsANWpTA.jpg" alt="People working on laptops">
+                <img src="https://www.freepik.com/free-photo/two-businessmen-analyzing-graphs_10312534.htm" alt="Financial advisory services">
             </div>
             <div class="content">
-                <h1>Feasibility and Scalability</h1>
+                <h1>Our Services</h1>
                 <div class="card">
-                    <h2>Technical Foundation</h2>
-                    <p>FinPath uses robust technologies like HTML, CSS, JavaScript (React.js) for the front-end.</p>
+                    <h2>Wealth Management</h2>
+                    <p>Comprehensive management of your wealth to grow your assets.</p>
                 </div>
                 <div class="card">
-                    <h2>Scalable Architecture</h2>
-                    <p>The cloud-based architecture allows scaling for growing user bases.</p>
+                    <h2>Tax Planning</h2>
+                    <p>Strategic tax planning to minimize liabilities and maximize savings.</p>
                 </div>
                 <div class="card">
-                    <h2>Cost-Effective Solution</h2>
-                    <p>Affordable services ensure a cost-effective and sustainable solution.</p>
+                    <h2>Estate Planning</h2>
+                    <p>Effective strategies for managing and transferring your estate.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Targeting Underserved Communities -->
-    <section id="section3" style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364);">
-        <div class="container">
-            <div class="content">
-                <h1>Targeting Underserved Communities</h1>
-                <div class="card">
-                    <h2>Young Professionals</h2>
-                    <p>Guidance on managing personal finances and setting goals for individuals starting their careers.</p>
-                </div>
-                <div class="card">
-                    <h2>Underserved Communities</h2>
-                    <p>Accessible resources and tools for individuals lacking access to financial education.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="https://storage.googleapis.com/a1aa/image/4FmFrRgRMML3AhExgSefe0dK5tFULaBN8L5jOG2tbuvJZsSnA.jpg" alt="Diverse people discussing financial planning">
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: Leveraging Vultr Services -->
-    <section id="section4">
-        <div class="header">
-            <img src="https://storage.googleapis.com/a1aa/image/ouPJti4u2DoyC1htgm59JPmZkvPqBAJLzPquZrfyhu5fKWpTA.jpg" alt="Image of a data center">
-        </div>
+    <!-- Section 3: Financial Planning -->
+    <section id="section3">
         <div class="content">
-            <h1>Leveraging Vultr Services</h1>
+            <h1>Financial Planning</h1>
+            <p>Our approach to financial planning combines thorough research with real-world experience. We prioritize your financial goals and offer customized strategies to achieve them.</p>
+        </div>
+    </section>
+
+    <!-- Section 4: Client Testimonials -->
+    <section id="section4" style="background-color: #003d66; color: white;">
+        <div class="content">
+            <h1>Client Testimonials</h1>
             <div class="services">
                 <div class="service">
-                    <i class="fas fa-server"></i>
-                    <h2>Vultr Compute Instances</h2>
-                    <p>Reliable and scalable infrastructure for hosting the web app.</p>
+                    <h2>John D.</h2>
+                    <p>FinPath helped me secure my family's future. Their expertise is unparalleled!</p>
                 </div>
                 <div class="service">
-                    <i class="fas fa-database"></i>
-                    <h2>Managed Database</h2>
-                    <p>Secure database storing user data such as expenses and savings goals.</p>
+                    <h2>Sarah M.</h2>
+                    <p>Highly recommend! Professional and attentive to my needs.</p>
                 </div>
                 <div class="service">
-                    <i class="fas fa-cloud"></i>
-                    <h2>Vultr Object Storage</h2>
-                    <p>User-uploaded financial documents are securely stored on the cloud.</p>
+                    <h2>Michael B.</h2>
+                    <p>Excellent financial planning services that truly make a difference!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 5: Expected Impact -->
-    <section id="section5" style="background-color: #0d1b2a;">
-        <div class="container">
-            <div class="content">
-                <h1>Expected Impact</h1>
-                <div class="card">
-                    <h2>Increased Financial Literacy</h2>
-                    <p>FinPath’s educational resources empower users to make informed financial decisions.</p>
-                </div>
-                <div class="card">
-                    <h2>Improved Budgeting Habits</h2>
-                    <p>Users can track their spending, set budgets, and achieve their savings goals.</p>
-                </div>
-            </div>
-            <div class="image-container">
-                <img src="https://storage.googleapis.com/a1aa/image/YourImageURL.jpg" alt="Expected Impact Image"> <!-- Add your image URL here -->
-            </div>
+    <!-- Section 5: Contact Us -->
+    <section id="section5">
+        <div class="content">
+            <h1>Contact Us</h1>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2024 FinPath. All rights reserved.</p>
     </footer>
-    <!-- User Input Form -->
-<section id="user-form" style="padding: 50px 20px;">
-    <h2>Sign Up for Updates</h2>
-    <form id="contact-form" action="/submit" method="POST">
-        <div style="margin-bottom: 15px;">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label for="phone">Phone Number:</label>
-            <input type="text" id="phone" name="phone" required>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-</section>
-
-
 </body>
 
 </html>
