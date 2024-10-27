@@ -272,9 +272,12 @@
         <a href="#section5">Contact Us</a>
         <a href="financial-education.html">Financial Education</a>
         <a href="expense.html" target="_blank">Expense Tracker</a>
+        <a href="quiz.html" target="_blank">Quiz</a>
+        <a href="tracker.html" target="_blank">Track Your Expenses</a>
     </nav>
 
     <h1 class="finpath-heading">Welcome to FinPath</h1>
+    
 
     <!-- Section 1: Comprehensive Financial Solutions -->
     <section id="section1">
@@ -358,10 +361,11 @@
     <!-- Section 5: Contact Us -->
     <section id="section5">
         <div class="content">
-            <h1>Contact Us</h1>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
+            <h1>Sign Up</h1>
+            <form id="signupForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="password" id="password" placeholder="Your Password" required>
                 <button type="submit">Submit</button>
             </form>
         </div>
@@ -370,6 +374,25 @@
     <footer>
         <p>&copy; 2024 FinPath. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Store the data in local storage
+            const userData = { name, email, password };
+            localStorage.setItem('userData', JSON.stringify(userData));
+
+            console.log('User data stored:', userData); // Log the data for verification
+
+            // Optionally, clear the form
+            this.reset();
+        });
+    </script>
 </body>
 
 </html>
